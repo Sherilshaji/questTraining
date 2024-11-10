@@ -12,18 +12,18 @@ public class StudentManagement {
         int n= getValidStudentCount(sc);
 
         String[] names = new String[n];
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++) { //Gets the data for n number of students
             double[] scores = getScores(names, i, sc);
             if (scores == null) break;
             double totalScore=scores[0]+scores[1]+scores[2];
             System.out.println("Total score: "+totalScore);
-            if(totalScore<50){
+            if(totalScore<50){  //If the total score is less than 50 , the program stops.
                 break;
             }
             double avgScore=totalScore/3;
             System.out.println("Average score: "+avgScore);
             String grade="F";
-            if(avgScore>=90&&avgScore<=MAX_SCORE){
+            if(avgScore>=90&&avgScore<=MAX_SCORE){  //Calculates the grade
                 grade="A";
                 System.out.println("Grade: "+grade);
                 System.out.println("Excellent performance!");
@@ -51,7 +51,7 @@ public class StudentManagement {
     }
 
     private static int getValidStudentCount(Scanner sc) {
-        while(true){
+        while(true){ //Checks for errors in number of students
             try{
                 System.out.println("Enter the number of students: ");
                 int n = sc.nextInt();
@@ -65,15 +65,15 @@ public class StudentManagement {
         }
     }
 
-    private static double[] getScores(String[] names, int i, Scanner sc) {
+    private static double[] getScores(String[] names, int i, Scanner sc) { //Gets student scores
         System.out.println("Enter the name of student: ");
         names[i] = sc.next();
         double[] scores=new double[3];
         String[] subjects={"math","english","science"};
         for(int j=0;j<3;j++){
-            while(true){
+            while(true){  //Checks for error
                 try{
-                    System.out.println("Enter the "+subjects[j]+" score(0-100): ");
+                    System.out.println("Enter the "+subjects[j]+" score(0-100): ");//Gets marks for each subject
                     double score = sc.nextDouble();
                     if(Validation(score)){
                         scores[j]=score;
@@ -91,7 +91,7 @@ public class StudentManagement {
     }
 
     public static boolean Validation(double score){
-        if(score<MAX_SCORE&&score>0){
+        if(score<MAX_SCORE&&score>0){ //Checks whether the score is b/w 0 and 100.
             return true;
         }else{
             return false;
