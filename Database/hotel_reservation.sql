@@ -112,6 +112,8 @@ where ra.assignment_date>= date_sub(CURDATE(),INTERVAL 1 MONTH) and ra.task_desc
 select * from Customer c join Reservation r on c.customer_id=r.customer_id where r.reservation_date=(
 select max(r2.reservation_date) from Reservation r2 where r2.customer_id=c.customer_id) order by c.customer_id;
 
--- Delete a reservation and all corresponding payment records.
-alter table Payment drop foreign key fk_payment_reservation, add constraint fk_payment_reservation
-foreign key (reservation_id) references Reservation(reservation_id) on delete cascade;
+-- Create a query that checks which rooms are available for a given date range (i.e., not reserved for those dates).
+select r.room_id,r.room_type,r.price_per_night,r.status_,r.floor_number
+from Rooms r left join Reservation res on r.room_id=res.room_id and res.status_ != 'Cancelled' and not ( res.checkout_date<='2024-11-18' or res.checkin_date>='2024-11-20' ) where r.status_ ='Available';
+
+

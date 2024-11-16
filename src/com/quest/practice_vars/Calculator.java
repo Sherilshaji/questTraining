@@ -10,9 +10,6 @@ public class Calculator {
         double currentResult= sc.nextDouble();
         while(true) {
             double result = operations(currentResult);
-            if(result==Double.MIN_VALUE){
-                break; //Checks for exit using special value
-            }
             System.out.println(result);
             System.out.println("Do you want to perform another operation?(Yes/No)");
             String answer = sc.next();
@@ -97,7 +94,7 @@ public class Calculator {
                 break;
             case 7:
                 System.out.println("Exiting the calculator");
-                return Double.MIN_VALUE; //Special value to exit from the program
+                System.exit(0);//Special value to exit from the program
             default:
                 System.out.println("Invalid choice");
                 break;
