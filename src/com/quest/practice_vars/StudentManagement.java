@@ -14,7 +14,6 @@ public class StudentManagement {
         String[] names = new String[n];
         for (int i = 0; i < n; i++) { //Gets the data for n number of students
             double[] scores = getScores(names, i, sc);
-            if (scores == null) break;
             double totalScore=scores[0]+scores[1]+scores[2];
             System.out.println("Total score: "+totalScore);
             if(totalScore<50){  //If the total score is less than 50 , the program stops.
@@ -91,11 +90,7 @@ public class StudentManagement {
     }
 
     public static boolean Validation(double score){
-        if(score<MAX_SCORE&&score>0){ //Checks whether the score is b/w 0 and 100.
-            return true;
-        }else{
-            return false;
-        }
+       return score<MAX_SCORE&&score>0;
     }
 
 

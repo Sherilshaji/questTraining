@@ -1,11 +1,7 @@
 package com.quest.practice_vars;
 
-import java.util.InputMismatchException;
-import java.util.Scanner;
-
 public class StudentScores {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
         String[] names = {"Alice", "Bob", "Charlie", "David", "Eve", "Frank", "Grace"};
         int[] ages = {20, 21, 22, 23, 24, 25, 26};
         int[][] scores = {

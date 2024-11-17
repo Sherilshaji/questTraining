@@ -11,6 +11,7 @@ public class SumOfDigits {
         while(num!=0){
             sum+=num%10;
             num=num/10;
+            System.out.println(num);
         }
         System.out.println("Sum of digits: "+sum);
     }

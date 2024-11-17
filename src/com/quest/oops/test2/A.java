@@ -5,6 +5,7 @@ public class A extends B {
     public static void main(String[] args) {
         A a = new A();
         a.add(5,10);
+
     }
     A(){
         System.out.println("A class constructor");
