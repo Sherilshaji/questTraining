@@ -1,9 +1,9 @@
 package com.quest.practice_vars.test;
 
 public abstract class StockAnalyzer {
-    String stockName;
-    String stockSymbol;
-    int[] prices;
+    public String stockName;
+    public String stockSymbol;
+    public int[] prices;
 
     public StockAnalyzer(String stockName, String stockSymbol, int[] prices) {
         this.stockName = stockName;

@@ -39,8 +39,24 @@ public class EquityStockAnalyzer extends StockAnalyzer {
 
     @Override
     public int[] findLongestIncreasingTrend() {
-        return new int[0];
+        int start = 0;
+        int maxStart = 0;
+        int maxLength = 1;
+
+        for (int i = 1; i < prices.length; i++) {
+            if (prices[i] <= prices[i-1]) {
+                start = i;
+            }
+            int currentLength = i - start + 1;
+            if (currentLength > maxLength) {
+                maxLength = currentLength;
+                maxStart = start;
+            }
+        }
+        int maxEnd = maxStart + maxLength - 1;
+        return new int[]{maxStart, maxEnd, maxLength};
     }
+
 
     @Override
     public void displayAnalysis() {

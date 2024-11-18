@@ -49,5 +49,16 @@ public class Main {
             System.out.print(commodityName);
         }
         System.out.print(" with Average Price "+highestAvg);
+        int equityTrend = eqStock.findLongestIncreasingTrend()[2];
+        int commodityTrend = commodityStock.findLongestIncreasingTrend()[2];
+        System.out.println("Trend Length Comparison:");
+        if (equityTrend > commodityTrend) {
+            System.out.println(stockName + " has longer trend: " + equityTrend + " days");
+        } else if (commodityTrend > equityTrend) {
+            System.out.println(commodityName + " has longer trend: " + commodityTrend + " days");
+        } else {
+            System.out.println("Both stocks have equal trends: " + equityTrend + " days");
+        }
+
     }
 }
