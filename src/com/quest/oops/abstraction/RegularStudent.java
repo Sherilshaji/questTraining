@@ -3,7 +3,7 @@ package com.quest.oops.abstraction;
 public class RegularStudent extends Student{
     @Override
     public void attendClass() {
-        System.out.println(" rattending online and offline classes");
+        System.out.println("Attending online and offline classes");
     }
 
     @Override
