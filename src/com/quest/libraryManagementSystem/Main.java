@@ -5,8 +5,9 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Library lib = new Library();
-        lib.addSampleDate();
+        LibraryOperations lib = new Library();
+        Library lib2 = new Library();
+        lib2.addSampleDate();
         while(true) {
             System.out.println("Library Management System");
             System.out.println("1. Add Book");
