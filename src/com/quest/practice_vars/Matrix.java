@@ -1,5 +1,6 @@
 package com.quest.practice_vars;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Matrix {
@@ -55,6 +56,7 @@ public class Matrix {
                     tempResult[index++]=arr[i][j];
             }
         }
+        Arrays.sort(tempResult);
         index=0;
         for(int i=0;i<rows;i++){
             for(int j=0;j<cols;j++){
