@@ -13,5 +13,16 @@ public class Class1 {
             num1=num2;
             num2=num;
         }
+        try{
+            method1(true);
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+
+    }
+    public static void method1(boolean condition) throws MyFirstCheckedException{
+        if(condition){
+            throw new MyFirstCheckedException("Test");
+        }
     }
 }
