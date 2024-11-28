@@ -7,4 +7,6 @@ public interface TSMSInterface {
     void addCallRecords(CallRecords cr);
     void displayCallRecords(int subId);
     void generateBill(int subId);
+    void saveSubDetails(Subscriber sub);
+    void saveCallRecords(CallRecords cr);
 }

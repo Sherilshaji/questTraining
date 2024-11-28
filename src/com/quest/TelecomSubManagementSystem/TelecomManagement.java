@@ -1,5 +1,7 @@
 package com.quest.TelecomSubManagementSystem;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class TelecomManagement implements TSMSInterface {
@@ -10,6 +12,7 @@ public class TelecomManagement implements TSMSInterface {
     @Override
     public void addSub(Subscriber sub) {
         subscribers.add(sub);
+        saveSubDetails(sub);
         System.out.println("New subscriber added");
     }
 
@@ -38,6 +41,7 @@ public class TelecomManagement implements TSMSInterface {
     @Override
     public void addCallRecords(CallRecords cr) {
         callRecords.add(cr);
+        saveCallRecords(cr);
         System.out.println("New call records added");
     }
 
@@ -64,10 +68,35 @@ public class TelecomManagement implements TSMSInterface {
 
                     total+=cr.getCallDuration()*2;
                 } else if (sc.getPlanType().equalsIgnoreCase("ISD")) {
-                    total+=cr.getCallDuration()*3;
+                    total+=cr.getCallDuration()*5;
                 }
             }
         }
         System.out.println("Total bill amount for Postpaid Subscriber ID "+subId+" : "+total);
     }
+
+    @Override
+    public void saveSubDetails(Subscriber sub) {
+        try(FileWriter writer=new FileWriter("subscriber.txt",true)){
+            writer.write(sub.getSubID()+", "+
+                    sub.getSubName()+", "+
+                    sub.getNumber()+", "+
+                    sub.getBalance());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public void saveCallRecords(CallRecords cr) {
+        try(FileWriter writer=new FileWriter("callrecords.txt",true)){
+            writer.write(cr.getSubId()+", "+
+                    cr.getCallType()+", "+
+                    cr.getCallDuration()+", "+
+                    cr.getCallTime());
+        }catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
 }
