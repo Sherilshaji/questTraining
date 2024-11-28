@@ -23,7 +23,6 @@ public class LinkedList1 {
         System.out.println("Remove 4 th element--"+list.remove(3).getName());
         System.out.println("Remove first--"+list.removeFirst().getName());
         System.out.println("Remove last--"+list.removeLast().getName());
-//        System.out.println("Contains Joe--"+list.contains(new PersonLinkedList("Joe",26)));
         System.out.println("Clearing data.");
         list.clear();
         System.out.println("Is empty--"+list.isEmpty());
