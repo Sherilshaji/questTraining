@@ -7,7 +7,18 @@ import java.util.Map;
 
 public class Implementation implements ImplementationInterface{
 
-    private Map<String,Playlist> playlists;
+    private Map<String,Playlist> playlists=new HashMap<>();
+    private Map<String,User> users=new HashMap<>();
+    private User currentUser;
+
+    public void createUser(String username){
+        User user=new User(username);
+        users.put(username,user);
+    }
+    public void setCurrentUser(User username){
+        currentUser=users.get(username);
+    }
+
     @Override
     public void addTrack(Playlist playlists,Track track) throws DuplicateTrackException {
         if(playlists.getTracks().contains(track)) {
@@ -53,7 +64,9 @@ public class Implementation implements ImplementationInterface{
 
     @Override
     public void createPlaylist(Playlist playlist,String playlistName) {
-        playlists.put(playlistName,new Playlist(playlistName));
+        if(currentUser!=null) {
+            playlists.put(playlistName,new Playlist(playlistName));
+        }
     }
 
     @Override
