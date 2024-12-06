@@ -1,7 +1,7 @@
 package com.quest.AutomobileManagementSystem;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public class Customer {
     private String customerId;
@@ -12,7 +12,7 @@ public class Customer {
         this.customerId = customerId;
         this.name = name;
         this.email = email;
-        this.purchasedVehicles = purchasedVehicles;
+        this.purchasedVehicles = new ArrayList<>();
     }
 
     public String getCustomerId() {
