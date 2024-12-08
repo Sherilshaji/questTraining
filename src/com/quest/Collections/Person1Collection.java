@@ -11,6 +11,7 @@ public class Person1Collection {
         list.add(new Person1("Jack",23,"male"));
         list.add(new Person1("Mary",19,"female"));
         list.add(new Person1("Bob",18,"male"));
+
         System.out.println("Person with age greater than 20");
         for (Person1 person : list) {
             if(person.getAge()>20){
