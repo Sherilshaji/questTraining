@@ -1,5 +1,6 @@
 package com.quest.BMWServiceCenterOperations;
 
+import java.time.LocalDateTime;
 import java.util.Random;
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -20,6 +21,7 @@ public class Main {
                 2014, 51000.0, "Bob Wilson", "Petrol", 2.0);
         CombustionEngineVehicle ice2 = new CombustionEngineVehicle("ICE002", "BMW", "X5",
                 2023, 18000.0, "Alice Brown", "Diesel", 3.0);
+        Customer customer1 = new Customer("C001", "John Doe", "john@example.com", ev1);
 
         ev.addServicedVehicle(ev1);
         ev.addServicedVehicle(ev2);
@@ -82,5 +84,24 @@ public class Main {
 
         System.out.println("Electric Vehicles: " + electricCount);
         System.out.println("Combustion Engine Vehicles: " + combustionCount);
+
+        BookingManager bookingManager=new BookingManager();
+        try {
+            ServiceBooking booking1 = new ServiceBooking(
+                    "B001",
+                    customer1,
+                    LocalDateTime.now().plusDays(5),
+                    "Regular Service",
+                    1000.0
+            );
+            bookingManager.addBooking(customer1, booking1);
+            System.out.println("Booking within next week: "+BookingManager.isWithinNextWeek.test(booking1));
+
+            bookingManager.getBookings().entrySet().forEach(BookingManager.printInvoice);
+            ServiceBooking randomBooking=BookingManager.randomBooking.get();
+            System.out.println("Random Booking Generated: "+randomBooking);
+        }catch (InvalidBookingException e){
+            System.out.println("Booking error: "+e.getMessage());
+        }
     }
 }
