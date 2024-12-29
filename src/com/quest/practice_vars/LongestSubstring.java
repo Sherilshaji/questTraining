@@ -15,7 +15,6 @@ public class LongestSubstring {
                 minLen=strArray[i].length();
                 minString= new StringBuilder(strArray[i]);
                 minIndex = i;
-
             }
         }
         for (int i = minIndex; i < strArray.length - 1; i++) {
@@ -37,7 +36,6 @@ public class LongestSubstring {
                 opString.append(c);
             }
         }
-
         System.out.println(opString);
     }
 }

@@ -1,6 +1,6 @@
 package com.quest.weatherMonitoringSystem;
 
-public class WeatherOperationsImpl extends Operations{
+public class WeatherOperationsImpl implements Operations{
     private City[] city;
     private int cityCount;
     public WeatherOperationsImpl() {

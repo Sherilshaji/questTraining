@@ -1,6 +1,8 @@
 package com.quest.practice_vars;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Array2ndLargest {
     public static void main(String[] args) {
@@ -13,4 +15,28 @@ public class Array2ndLargest {
             }
         }
     }
+
+//    public static class ArrayRotation {
+//        public static void main(String[] args) {
+//            List<Integer> list=new ArrayList<>();
+//            list.add(5);
+//            list.add(2);
+//            list.add(8);
+//            list.add(1);
+//            list.add(3);
+//
+//            list.forEach(System.out::println);
+//            int position=2;
+//
+//            List<Integer> list2=new ArrayList<>();
+//            for(int i=position;i<list.size();i++){
+//                    list2.add(list.get(i));
+//            }
+//            for(int i=0;i<position;i++){
+//                list2.add(list.get(i));
+//            }
+//            System.out.print("Starting from position "+position);
+//            list2.forEach(System.out::print);
+//        }
+//    }
 }

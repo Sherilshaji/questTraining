@@ -1,10 +1,11 @@
 package com.quest.practice_vars;
 
-public class ArrayDuplicates {
+public class FindMissingNum {
     public static void main(String[] args) {
 
-        int[] arr1 = {2,6,8,5,9};
-        for(int i=1;i<=10;i++){
+        int N=6;
+        int[] arr1={1,2,4,5,6};
+        for(int i=1;i<=N;i++){
             boolean flag=false;
             for (int k : arr1) {
                 if (i == k) {
